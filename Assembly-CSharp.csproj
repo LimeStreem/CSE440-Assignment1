@@ -45,6 +45,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BackgroundRepeater.cs" />
+     <Compile Include="Assets\CameraController.cs" />
+     <Compile Include="Assets\CatController.cs" />
+     <Compile Include="Assets\EnemyController.cs" />
+     <Compile Include="Assets\ScreenRelativePosition.cs" />
      <Compile Include="Assets\ZombieAnimater.cs" />
      <Compile Include="Assets\ZombieController.cs" />
  <Reference Include="UnityEngine.Networking">
