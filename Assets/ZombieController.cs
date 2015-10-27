@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ZombieController : MonoBehaviour {
 	public float moveSpeed;
@@ -7,6 +8,8 @@ public class ZombieController : MonoBehaviour {
 	public float turnSpeed;
 
 	private Vector3 moveDirection;
+
+	private List<Transform> congaLine = new List<Transform>();
 
 
 	[SerializeField]
@@ -66,6 +69,18 @@ public class ZombieController : MonoBehaviour {
 		}
 		
 		// 4
-		transform.position = newPosition;
+		transform.position
+			= newPosition;
+	}
+
+	public void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.CompareTag ("cat")) {
+			Transform followTarget = congaLine.Count == 0 ? transform : congaLine[congaLine.Count-1];
+			other.GetComponent<CatController>().JoinConga( followTarget, moveSpeed, turnSpeed );
+			congaLine.Add( other.transform );
+		} else if (other.CompareTag ("enemy")) {
+
+		}
 	}
 }
